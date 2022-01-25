@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+.App {
+  max-width: 1270px;
+  margin: 0 auto;
+}
+.nav {
+  display: flex;
+  a {
+    padding: 10px 25px;
+    color: #000;
+    transition: 0.3s all;
+    &.active {
+      background-color: #ddd;
+    }
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+.container {
+  background-color: #ddd;
+  padding: 25px;
+  min-height: 100vh;
+  .form {
+    .form-title {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #1976d2;
+    }
+    .form-send {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      grid-gap: 20px;
+      margin-bottom: 25px;
+      .css-cio0x1-MuiInputBase-root-MuiFilledInput-root {
+        background-color: #fff;
+      }
+      
+    }
+  }
+  .list-container {
+    .list-title {
+      font-size: 32px;
+      margin-bottom: 25px;
+      color: #1976d2;
+    }
+    .list {
+      .list-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        grid-gap: 20px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        background-color: #fff;
+        padding: 10px 15px;
+        margin-bottom: 15px;
+        .list-info {
+          h2 {
+            margin-bottom: 7px;
+          }
+          h4 {
+            color: #1976d2;
+            margin-bottom: 5px;
+          }
+          h5 {
+            color: rgba(0, 0, 0, 0.6);
+          }
+        }
+        .list-buttons {
+          display: flex;
+          grid-gap: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 420px) {
+  .form-send {
+    .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+      width: 100%;
+    }
+  }
+}
