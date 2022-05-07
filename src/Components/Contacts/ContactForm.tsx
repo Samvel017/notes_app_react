@@ -1,20 +1,26 @@
 import { Button, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { ContactComponentProps } from './types';
 
-export default function ContactForm({ addNewContact }) {
-  const [contactName, setContactName] = useState('');
-  const [contactPhone, setContactPhone] = useState('');
-  const [contactEmail, setContactEmail] = useState('');
-  
+export default function ContactForm({
+  addNewContact,
+}: ContactComponentProps): JSX.Element {
+  const [contactName, setContactName] = useState<string>('');
+  const [contactPhone, setContactPhone] = useState<string>('');
+  const [contactEmail, setContactEmail] = useState<string>('');
+
   const addNewItem = () => {
-    addNewContact({
-      name: contactName,
-      phone: contactPhone,
-      email: contactEmail,
-    });
-    setContactName('');
-    setContactPhone('');
-    setContactEmail('');
+    if (contactName && contactPhone && contactEmail) {
+      addNewContact &&
+        addNewContact({
+          name: contactName,
+          phone: contactPhone,
+          email: contactEmail,
+        });
+      setContactName('');
+      setContactPhone('');
+      setContactEmail('');
+    }
   };
   return (
     <div className="form">

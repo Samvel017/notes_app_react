@@ -1,16 +1,22 @@
 import { Button, TextField } from '@mui/material';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { AppointmentComponentProps } from './types';
 
-export default function AppointmentsForm({ addNewAppointment }) {
+export default function AppointmentsForm({
+  addNewAppointment,
+}: AppointmentComponentProps): JSX.Element {
   const [appTitle, setAppTitle] = useState('');
   const [appDate, setAppDate] = useState('2022-01-25');
   const [appTime, setAppTime] = useState('10:00');
-  
+
   const addNewItem = () => {
-    addNewAppointment({ title: appTitle, date: appDate, time: appTime });
-    setAppTitle('');
-    setAppDate('2022-01-25');
-    setAppTime('10:00');
+    if (appTitle && appDate && appTime) {
+      addNewAppointment &&
+        addNewAppointment({ title: appTitle, date: appDate, time: appTime });
+      setAppTitle('');
+      setAppDate('2022-01-25');
+      setAppTime('10:00');
+    }
   };
 
   return (
@@ -31,7 +37,7 @@ export default function AppointmentsForm({ addNewAppointment }) {
           label="Date"
           value={appDate}
           variant="filled"
-          type='date'
+          type="date"
           onChange={(e) => {
             setAppDate(e.target.value);
           }}
@@ -39,7 +45,7 @@ export default function AppointmentsForm({ addNewAppointment }) {
         <TextField
           id="filled-required"
           label="Time"
-          type='time'
+          type="time"
           value={appTime}
           variant="filled"
           onChange={(e) => {
